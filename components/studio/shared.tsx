@@ -234,7 +234,7 @@ export function Footer() {
           <a href="/start">Contact ↗</a>
         </nav>
         <span>
-          El Paso, Texas
+          Made in El Paso, Texas.
           <br />
           Building everywhere.
         </span>
