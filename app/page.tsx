@@ -241,58 +241,8 @@ export default function Home() {
         </div>
       </section>
       <ResponsiveShowcase />
-      <section className="case-teaser section-pad">
-        <div className="case-intro">
-          <Eyebrow index="08">A CLOSER LOOK / CONCEPT STUDY</Eyebrow>
-          <h2>
-            Industrial roots.
-            <br />A stronger
-            <br />
-            digital presence.
-          </h2>
-          <a href="/work/ccptx" className="text-link">
-            Explore the CCPTX Project →
-          </a>
-        </div>
-        <div className="case-details">
-          {[
-            [
-              "THE PROBLEM",
-              "An established manufacturing business needs a website that reflects the quality of its work.",
-            ],
-            [
-              "THE GOAL",
-              "Modernize the presentation without losing its industrial character.",
-            ],
-            [
-              "THE DIRECTION",
-              "Confident typography, clear service information, and a practical path from first impression to first conversation.",
-            ],
-          ].map(([h, p]) => (
-            <div key={h}>
-              <h3>{h}</h3>
-              <p>{p}</p>
-            </div>
-          ))}
-          <div className="design-sample">
-            <span>
-              Aa
-              <br />
-              <small>MANROPE</small>
-            </span>
-            <div className="swatches">
-              {projects[0].colors.map((c) => (
-                <i key={c} style={{ background: c }} title={c} />
-              ))}
-            </div>
-          </div>
-        </div>
-        <div className="case-teaser-comparison">
-          <Comparison compact />
-        </div>
-      </section>
       <section className="industries section-pad">
-        <Eyebrow index="09">SOUND LIKE YOU?</Eyebrow>
+        <Eyebrow index="08">SOUND LIKE YOU?</Eyebrow>
         <h2>
           We like good businesses
           <br />
@@ -347,7 +297,7 @@ export default function Home() {
           </span>
         </div>
         <div>
-          <Eyebrow index="10">A SIMPLE THOUGHT</Eyebrow>
+          <Eyebrow index="09">A SIMPLE THOUGHT</Eyebrow>
           <h2>
             Great businesses.
             <br />
