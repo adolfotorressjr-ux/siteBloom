@@ -15,6 +15,8 @@ import {
   Services,
 } from "@/components/studio/interactions";
 import { projects } from "@/data/projects";
+import { CcptxShowcase } from "@/components/studio/ccptx-showcase";
+import ccptxProject from "@/components/studio/ccptx-project.module.css";
 export default function Home() {
   return (
     <main id="main">
@@ -133,7 +135,7 @@ export default function Home() {
           <article className={`project project-${i} reveal`} key={project.slug}>
             <a
               href={`/work/${project.slug}`}
-              className={`project-stage ${project.theme}`}
+              className={`project-stage ${project.theme} ${project.slug === "ccptx" ? ccptxProject.stage : ""}`}
               aria-label={`Explore ${project.name} concept project`}
             >
               <div className="project-number">
@@ -141,12 +143,12 @@ export default function Home() {
               </div>
               <div className="project-desktop">
                 <Browser label={project.name}>
-                  <SiteMock theme={project.theme} />
+                  {project.slug === "ccptx" ? <CcptxShowcase presentation="desktop" /> : <SiteMock theme={project.theme} />}
                 </Browser>
               </div>
               <div className="project-mobile">
                 <div className="phone-camera" />
-                <SiteMock theme={project.theme} />
+                {project.slug === "ccptx" ? <CcptxShowcase presentation="phone" /> : <SiteMock theme={project.theme} />}
               </div>
               <span className="project-round-arrow" aria-hidden="true">
                 ↗

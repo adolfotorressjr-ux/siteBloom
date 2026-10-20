@@ -1,0 +1,9 @@
+.stage {
+  background-color: #d4d5c7;
+  background-image: linear-gradient(#69755a0b 1px, transparent 1px), linear-gradient(90deg, #69755a0b 1px, transparent 1px);
+  background-size: 48px 48px;
+  color: #293522;
+}
+.stage :global(.project-number) { color: #3b4632; }
+.stage :global(.project-mobile) { background: #202510; border-color: #273022; }
+.stage :global(.stage-caption) { color: #3b4632; }

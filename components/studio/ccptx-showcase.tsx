@@ -1,9 +1,9 @@
 import styles from "./ccptx-showcase.module.css";
 
 /** A presentation inside the comparison, not a second interactive website. */
-export function CcptxShowcase() {
+export function CcptxShowcase({ presentation = "responsive" }: { presentation?: "responsive" | "desktop" | "phone" }) {
   return (
-    <div className={styles.showcase} role="img" aria-label="CCPTX redesigned website concept: real stacked pallets in a manufacturing facility, bold Custom Packaging. Built for Industry. headline, maroon quote button, and an illustrated engineering blueprint.">
+    <div className={`${styles.showcase} ${presentation === "desktop" ? styles.desktop : presentation === "phone" ? styles.phone : ""}`} role="img" aria-label="CCPTX redesigned website concept: real stacked pallets in a manufacturing facility, bold Custom Packaging. Built for Industry. headline, maroon quote button, and an illustrated engineering blueprint.">
       <div className={styles.navigation} aria-hidden="true">
         <div className={styles.wordmark}>CCPTX<span>CUSTOM CRATES & PALLETS, LTD.</span></div>
         <div className={styles.links}>Capabilities<span>Our company</span><b>Get a quote ↗</b></div>

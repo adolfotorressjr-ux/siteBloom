@@ -60,3 +60,49 @@
   .bottom { left: 5cqw; right: 5cqw; height: 10cqw; font-size: max(6px,1.5cqw); letter-spacing: .04em; }
   .bottom b { font-size: 12px; }
 }
+
+/* Device models keep their own proportions at every portfolio-card size. */
+.desktop .navigation { height: 7cqw; padding: 0 4cqw; }
+.desktop .wordmark { font-size: 3.4cqw; }
+.desktop .wordmark span { font-size: .7cqw; margin-top: .65cqw; }
+.desktop .links { font-size: 1.05cqw; gap: 3cqw; }
+.desktop .links > span { display: inline; }
+.desktop .links b { font-size: 1cqw; padding: 1cqw 1.5cqw; }
+.desktop .canvas { height: 44cqw; min-height: 0; max-height: none; }
+.desktop .copy { padding: 3.4cqw 4cqw 0; }
+.desktop .eyebrow { font-size: 1cqw; letter-spacing: .16em; gap: 1.3cqw; }
+.desktop .eyebrow i { width: 3cqw; }
+.desktop .copy h3 { font-size: 7.9cqw; margin: 2.4cqw 0 1.8cqw; }
+.desktop .copy p { font-size: 1.25cqw; line-height: 1.7; margin-bottom: 2cqw; max-width: none; }
+.desktop .copy p span { display: inline; margin: 0; }
+.desktop .copy p br { display: initial; }
+.desktop .quote { font-size: 1.05cqw; padding: 1.4cqw 1.8cqw; gap: 3cqw; }
+.desktop .quote b { font-size: 2cqw; }
+.desktop .blueprint { width: 29cqw; right: 3.7cqw; bottom: 5.4cqw; }
+.desktop .drawingLabel { font-size: .7cqw; padding: 1cqw 1.2cqw; letter-spacing: .1em; }
+.desktop .blueprint svg { height: 17cqw; padding: .8cqw 1.1cqw; }
+.desktop .drawingFoot { font-size: .58cqw; padding: .8cqw 1.2cqw; }
+.desktop .drawingFoot span { display: inline; }
+.desktop .bottom { height: 4cqw; left: 4cqw; right: 4cqw; font-size: .8cqw; letter-spacing: .12em; }
+.desktop .bottom b { font-size: 1.7cqw; }
+
+.phone { height: 100%; padding-top: 12cqw; background: #f2f0e8; }
+.phone .navigation { height: 25cqw; padding: 0 7cqw; }
+.phone .wordmark { font-size: 13cqw; }
+.phone .wordmark span, .phone .links { display: none; }
+.phone .navigation::after { content: "☰"; font-size: 7cqw; color: #4b513b; }
+.phone .canvas { height: calc(100% - 25cqw); min-height: 0; max-height: none; }
+.phone .copy { padding: 8cqw 7cqw 0; }
+.phone .eyebrow { font-size: 3cqw; gap: 3cqw; letter-spacing: .05em; }
+.phone .eyebrow i { width: 7cqw; flex-shrink: 0; }
+.phone .copy h3 { font-size: 14.7cqw; line-height: 1; margin: 5cqw 0; }
+.phone .copy h3 span { white-space: normal; }
+.phone .copy p { font-size: 4.8cqw; line-height: 1.5; margin-bottom: 7cqw; }
+.phone .copy p span { display: none; }
+.phone .quote { font-size: 4cqw; padding: 5cqw; gap: 5cqw; }
+.phone .quote b { font-size: 7cqw; }
+.phone .blueprint { position: relative; width: 64cqw; right: auto; bottom: auto; margin: 12cqw 9cqw 0 auto; }
+.phone .drawingLabel { font-size: 2.6cqw; padding: 3cqw; }
+.phone .blueprint svg { height: 40cqw; padding: 2cqw; }
+.phone .drawingFoot { font-size: 2.5cqw; padding: 2.5cqw; }
+.phone .drawingFoot span, .phone .bottom { display: none; }
