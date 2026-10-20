@@ -1,0 +1,62 @@
+@font-face {
+  font-family: "CCPTX Condensed";
+  src: url("/fonts/barlow-condensed-bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+.showcase { container-type: inline-size; width: 100%; overflow: hidden; background: #202510; color: #f4f3e9; }
+.navigation { height: 7cqw; padding: 0 4cqw; display: flex; align-items: center; justify-content: space-between; background: #f2f0e8; color: #242818; }
+.wordmark { font-family: "CCPTX Condensed", "Arial Narrow", sans-serif; font-size: 3.4cqw; line-height: .9; letter-spacing: -.02em; color: #631e22; }
+.wordmark span { display: block; margin-top: .65cqw; font-family: Arial, sans-serif; font-weight: 700; font-size: .7cqw; letter-spacing: .08em; }
+.links { display: flex; align-items: center; gap: 3cqw; font-size: 1.05cqw; }
+.links b { padding: 1cqw 1.5cqw; color: #fff7ee; background: #631e22; font-size: 1cqw; }
+.canvas { position: relative; height: 44cqw; isolation: isolate; }
+.photograph { position: absolute; inset: 0; height: 100%; width: 100%; object-fit: cover; object-position: 60% 45%; z-index: -3; }
+.shade { position: absolute; inset: 0; z-index: -2; background: linear-gradient(90deg, rgba(18,27,15,.91) 0%, rgba(26,34,17,.69) 40%, rgba(31,38,16,.25) 76%), linear-gradient(0deg, rgba(17,25,13,.95), transparent 50%); }
+.copy { position: relative; padding: 3.4cqw 4cqw 0; }
+.eyebrow { display: flex; gap: 1.3cqw; align-items: center; font-size: 1cqw; font-weight: 700; letter-spacing: .16em; color: #e0e2ce; }
+.eyebrow i { width: 3cqw; height: 2px; background: #ad6562; }
+.copy h3 { font: 700 7.9cqw/.98 "CCPTX Condensed", "Arial Narrow", sans-serif; letter-spacing: -.015em; margin: 2.4cqw 0 1.8cqw; }
+.copy h3 span { display: block; white-space: nowrap; }
+.copy h3 span:last-child { color: #d5d8bc; }
+.copy p { font-size: 1.25cqw; line-height: 1.7; color: #f1f0e5; margin: 0 0 2cqw; }
+.copy p span { color: #c5ccb8; }
+.quote { display: inline-flex; align-items: center; justify-content: space-between; gap: 3cqw; background: #70272b; border: 1px solid #a56b6555; color: #fff6ee; padding: 1.4cqw 1.8cqw; font-size: 1.05cqw; letter-spacing: .07em; font-weight: 700; }
+.quote b { font-size: 2cqw; line-height: .8; font-weight: 400; }
+.blueprint { position: absolute; right: 3.7cqw; bottom: 5.4cqw; width: 29cqw; color: #d0d6ae; background-color: #202b1ec2; border: 1px solid #abb99066; background-image: linear-gradient(#b5c69a10 1px, transparent 1px), linear-gradient(90deg,#b5c69a10 1px,transparent 1px); background-size: 2.5cqw 2.5cqw; transform: rotate(-3deg); }
+.drawingLabel { display: flex; justify-content: space-between; padding: 1cqw 1.2cqw; border-bottom: 1px solid #b5c69a33; font-size: .7cqw; letter-spacing: .1em; background: #25301fc9; }
+.blueprint svg { display: block; width: 100%; height: 17cqw; padding: .8cqw 1.1cqw; }
+.drawingFoot { display: flex; justify-content: space-between; padding: .8cqw 1.2cqw; font-size: .58cqw; letter-spacing: .06em; border-top: 1px solid #b5c69a33; }
+.drawingFoot span { opacity: .7; }
+.bottom { position: absolute; bottom: 0; left: 4cqw; right: 4cqw; height: 4cqw; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #e3e7cf40; font-size: .8cqw; letter-spacing: .12em; color: #d5d9c4; }
+.bottom b { font-size: 1.7cqw; margin-right: 1cqw; }
+
+@container (max-width: 560px) {
+  .navigation { height: 48px; padding: 0 5cqw; }
+  .wordmark { font-size: 23px; }
+  .wordmark span { font-size: 5.5px; margin-top: 4px; }
+  .links { font-size: 9px; gap: 12px; }
+  .links > span { display: none; }
+  .links b { font-size: 9px; padding: 8px; }
+  .canvas { height: 88cqw; min-height: 310px; max-height: 430px; }
+  .photograph { object-position: 65% center; }
+  .shade { background: linear-gradient(90deg,#111b10e8,#17231188 70%,#18221133), linear-gradient(0deg,#17200ff5,transparent 70%); }
+  .copy { padding: 6cqw 5cqw 0; }
+  .eyebrow { font-size: max(7px,1.7cqw); letter-spacing: .08em; gap: 8px; }
+  .eyebrow i { width: 15px; }
+  .copy h3 { font-size: 9.2cqw; margin: 5cqw 0 3cqw; }
+  .copy p { font-size: max(10px,2.4cqw); line-height: 1.6; max-width: 84cqw; margin-bottom: 5cqw; }
+  .copy p span { display: block; max-width: 71cqw; margin-top: 4px; }
+  .copy p br { display: none; }
+  .quote { font-size: max(9px,2cqw); padding: 12px; gap: 16px; }
+  .quote b { font-size: 18px; }
+  .blueprint { width: 31cqw; right: 5cqw; bottom: 12cqw; }
+  .drawingLabel { font-size: 5px; padding: 5px; letter-spacing: .03em; }
+  .blueprint svg { height: 21cqw; padding: 4px; }
+  .drawingFoot { font-size: 5px; padding: 5px; }
+  .drawingFoot span { display: none; }
+  .bottom { left: 5cqw; right: 5cqw; height: 10cqw; font-size: max(6px,1.5cqw); letter-spacing: .04em; }
+  .bottom b { font-size: 12px; }
+}

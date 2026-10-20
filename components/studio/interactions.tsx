@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { Browser, SiteMock, Eyebrow } from "./shared";
+import { CcptxShowcase } from "./ccptx-showcase";
 import { services } from "@/data/services";
 export function MotionSetup() {
   useEffect(() => {
@@ -95,7 +96,7 @@ export function Comparison({ compact = false }: { compact?: boolean }) {
       <Browser label="Same business. A whole new feeling.">
         <div className="compare-stage">
           <div className="compare-after">
-            <SiteMock />
+            <CcptxShowcase />
           </div>
           <div
             className="compare-before"
