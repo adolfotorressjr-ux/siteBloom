@@ -17,6 +17,24 @@ import {
 import { projects } from "@/data/projects";
 import { CcptxShowcase } from "@/components/studio/ccptx-showcase";
 import ccptxProject from "@/components/studio/ccptx-project.module.css";
+function DecorativeAsterisk() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="1em"
+      height="1em"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      aria-hidden="true"
+      focusable="false"
+      style={{ display: "inline-block", verticalAlign: "-0.1em" }}
+    >
+      <path d="M12 2v20M2 12h20M5 5l14 14M5 19 19 5" />
+    </svg>
+  );
+}
+
 export default function Home() {
   return (
     <main id="main">
@@ -71,7 +89,7 @@ export default function Home() {
         </div>
         <div className="hero-bottom">
           <div>
-            WEB DESIGN <span>✳</span> DEVELOPMENT <span>✳</span> REDESIGN
+            WEB DESIGN <span><DecorativeAsterisk /></span> DEVELOPMENT <span><DecorativeAsterisk /></span> REDESIGN
           </div>
           <p>A better website. A bigger possibility.</p>
           <a href="#transformation" aria-label="Scroll to the transformation">
@@ -104,7 +122,7 @@ export default function Home() {
         <Comparison />
         <div className="transformation-bottom">
           <span className="asterisk" aria-hidden="true">
-            ✳
+            <DecorativeAsterisk />
           </span>
           <p>
             You don’t need a new business.
@@ -275,7 +293,7 @@ export default function Home() {
                   ][i % 5],
                 }}
               >
-                ✳
+                <DecorativeAsterisk />
               </i>
             </span>
           ))}
