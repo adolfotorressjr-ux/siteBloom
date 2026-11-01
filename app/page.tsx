@@ -302,12 +302,10 @@ export default function Home() {
       <section id="about" className="about section-pad">
         <div className="about-photo">
           <img
-            src="/images/desert.webp"
-            srcSet="/images/desert-400.webp 400w, /images/desert-700.webp 700w, /images/desert.webp 1000w"
-            sizes="(max-width: 600px) 90vw, 40vw"
-            alt="Warm desert landscape, a nod to the studio’s El Paso roots"
-            width="1000"
-            height="662"
+            src="/images/el-paso-city.webp"
+            alt="El Paso’s illuminated downtown with mountains rising behind the city"
+            width="540"
+            height="360"
             loading="lazy"
           />
           <span>
