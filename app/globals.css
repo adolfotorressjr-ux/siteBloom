@@ -3755,40 +3755,24 @@ footer a:focus-visible { outline-color: var(--gold); }
   .hero-art .craft-note > span { right: -30px; top: 2px; font-size: 24px; }
 }
 
-/* One continuous ribbon: equal-width bands with concentric right-hand curves. */
+/* Five uninterrupted, equally thick horizontal bands at both transitions. */
 .proof > .stripes,
 footer > .stripes {
-  --band: clamp(6px, 0.8vw, 12px);
-  --bend: calc(5 * var(--band) + 24px);
-  --stripe-field: var(--teal);
-  display: block;
-  position: relative;
-  height: var(--bend);
-  background: var(--cream);
-  isolation: isolate;
-}
-.proof > .stripes {
-  --stripe-field: var(--ink);
-  position: absolute;
+  --band: 12px;
+  display: flex;
+  flex-direction: column;
+  height: calc(5 * var(--band));
 }
 .proof > .stripes > i,
 footer > .stripes > i {
-  position: absolute;
-  inset: 0 calc(var(--inset) * var(--band)) calc(var(--inset) * var(--band)) 0;
-  border-bottom-right-radius: calc(var(--bend) - var(--inset) * var(--band));
+  flex: 0 0 var(--band);
+  width: 100%;
   box-shadow: none;
+  border-radius: 0;
 }
-.proof > .stripes > i:nth-child(1), footer > .stripes > i:nth-child(1) { --inset: 4; z-index: 5; }
-.proof > .stripes > i:nth-child(2), footer > .stripes > i:nth-child(2) { --inset: 3; z-index: 4; }
-.proof > .stripes > i:nth-child(3), footer > .stripes > i:nth-child(3) { --inset: 2; z-index: 3; }
-.proof > .stripes > i:nth-child(4), footer > .stripes > i:nth-child(4) { --inset: 1; z-index: 2; }
-.proof > .stripes > i:nth-child(5), footer > .stripes > i:nth-child(5) { --inset: 0; z-index: 1; }
-.proof > .stripes::after,
-footer > .stripes::after {
-  content: "";
-  position: absolute;
-  inset: 0 calc(5 * var(--band)) calc(5 * var(--band)) 0;
-  border-bottom-right-radius: calc(var(--bend) - 5 * var(--band));
-  background: var(--stripe-field);
-  z-index: 6;
+@media (max-width: 800px) {
+  .proof > .stripes, footer > .stripes { --band: 8px; }
+}
+@media (max-width: 600px) {
+  .proof > .stripes, footer > .stripes { --band: 6px; }
 }
