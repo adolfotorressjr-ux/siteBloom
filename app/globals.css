@@ -3596,3 +3596,143 @@ footer > .stripes {
 .case-page {
   animation: page-enter 0.45s ease-out both;
 }
+
+/* siteBloom color study: paint-only refinements; all geometry stays unchanged. */
+.hero h1 > span,
+.work h2 em,
+.about h2 em,
+.start-heading h1 em {
+  color: var(--red);
+}
+.hero h1 svg { color: var(--gold); }
+.hero-ribbon path { stroke-width: 18; }
+.hero-bottom { border-color: var(--orange); }
+.hero-actions .button {
+  background: var(--teal);
+  border-color: var(--teal);
+}
+.hero-actions .button:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--ink);
+}
+.hero-actions .text-link { border-color: var(--red); }
+.craft-note { color: var(--teal); }
+
+/* Color surrounds the projects without recoloring the client websites. */
+.work .project-stage.industrial {
+  background-color: var(--orange);
+  background-image: none;
+  color: var(--ink);
+}
+.work .project-stage.landscape {
+  background-color: var(--gold);
+  color: var(--ink);
+}
+.work .project-stage .project-number,
+.work .project-stage .stage-caption { color: var(--ink); }
+.project-round-arrow {
+  background: var(--teal);
+  color: var(--cream);
+}
+.project-stage:hover .project-round-arrow {
+  background: var(--cream);
+  color: var(--teal);
+}
+.project-info .text-link { color: var(--teal); border-color: var(--orange); }
+.project-tags span { border-color: var(--teal); color: var(--teal); }
+.comparison-labels > span:last-child { color: var(--teal); }
+.compare-line { background: var(--gold); }
+.compare-line > span {
+  background: var(--gold);
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.transformation-bottom .asterisk { color: var(--red); }
+
+/* Deep ocean field, warm active states, and unchanged interactive demos. */
+.services {
+  background: var(--teal);
+  color: var(--cream);
+}
+.services .eyebrow { color: var(--gold); }
+.services .index { opacity: 1; }
+.services .service-list { border-color: #f7f2e866; scrollbar-color: var(--gold) var(--teal); }
+.services .service-list button { border-bottom-color: #f7f2e866; }
+.services .service-list button:hover,
+.services .service-list button[aria-selected="true"],
+.services .service-list button[aria-selected="true"] > span {
+  color: var(--gold);
+}
+.services .service-list button[aria-selected="true"] { border-bottom-color: var(--gold); }
+.services .service-list button[aria-selected="true"] > i { color: var(--orange); }
+.services .service-browser { border-color: var(--gold); }
+.services .service-browser > .browser-bar {
+  background: var(--gold);
+  color: var(--ink);
+  border-color: var(--gold);
+}
+.services .browser-dots i { background: var(--teal); }
+.services .service-store,
+.services .service-booking,
+.services .service-custom { color: var(--ink); }
+.services :is(button, [tabindex]):focus-visible { outline-color: var(--gold); }
+
+/* The existing stripe bars become broader visual signatures without reflow. */
+.proof .stripes i:nth-child(1), footer .stripes i:nth-child(1) { box-shadow: 0 -10px var(--blue); }
+.proof .stripes i:nth-child(2), footer .stripes i:nth-child(2) { box-shadow: 0 -10px var(--teal); }
+.proof .stripes i:nth-child(3), footer .stripes i:nth-child(3) { box-shadow: 0 -10px var(--red); }
+.proof .stripes i:nth-child(4), footer .stripes i:nth-child(4) { box-shadow: 0 -10px var(--orange); }
+.proof .stripes i:nth-child(5), footer .stripes i:nth-child(5) { box-shadow: 0 -10px var(--gold); }
+.proof h2 > span { color: var(--red); }
+.process h2 em { color: var(--red); }
+.timeline > li:nth-child(1) > span { background: var(--blue); border-color: var(--blue); color: var(--ink); }
+.timeline > li:nth-child(2) > span { background: var(--teal); border-color: var(--teal); color: var(--cream); }
+.timeline > li:nth-child(3) > span { border-color: var(--red); color: var(--ink); }
+.timeline > li:nth-child(4) > span { background: var(--orange); border-color: var(--orange); color: var(--ink); }
+.timeline > li:nth-child(5) > span { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+.why { border-top-color: var(--orange); }
+.why-seal { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+.principles > div:nth-child(1) { border-bottom-color: var(--blue); }
+.principles > div:nth-child(2) { border-bottom-color: var(--teal); }
+.principles > div:nth-child(3) { border-bottom-color: var(--red); }
+.principles > div:nth-child(4) { border-bottom-color: var(--orange); }
+.principles > div:nth-child(5) { border-bottom-color: var(--gold); }
+
+.responsive-section { background: var(--blue); color: var(--ink); }
+.responsive-section .index { opacity: 1; }
+.responsive-section .device-controls button[aria-pressed="true"] {
+  color: var(--ink);
+  border-color: var(--ink);
+  background: var(--gold);
+}
+.responsive-section .device-controls button:hover { background: var(--cream); }
+.responsive-section button:focus-visible { outline-color: var(--ink); }
+.industry-list { border-color: var(--teal); }
+.about-photo > span { background: var(--gold); color: var(--ink); }
+
+/* A golden finish, with the existing orbit and its original motion intact. */
+.final-cta { background: var(--gold); color: var(--ink); }
+.final-cta h2 { color: var(--teal); }
+.final-cta .eyebrow,
+.final-cta p { color: var(--ink); }
+.final-cta .button {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--cream);
+}
+.final-cta .button:hover {
+  background: var(--cream);
+  border-color: var(--cream);
+  color: var(--ink);
+}
+.cta-orbit {
+  border-color: var(--red);
+  background: var(--red);
+  box-shadow: 0 0 0 22px var(--orange), 0 0 0 44px var(--blue);
+}
+footer { background: var(--teal); color: var(--cream); }
+.footer-wordmark > span { color: var(--gold); }
+.footer-bottom { border-color: #f7f2e866; }
+footer a:hover { color: var(--gold); }
+footer a:focus-visible { outline-color: var(--gold); }
