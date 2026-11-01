@@ -3742,23 +3742,21 @@ footer { background: var(--teal); color: var(--cream); }
 footer a:hover { color: var(--cream); text-decoration-color: var(--gold); }
 footer a:focus-visible { outline-color: var(--gold); }
 
-/* Keep the handwritten note in the quiet space beneath the hero preview. */
+/* Give the handwritten note clear space above the hero preview. */
 .hero-art .craft-note {
-  top: auto;
-  bottom: 32px;
-  right: 3%;
+  top: 0;
+  bottom: auto;
+  left: 5%;
+  right: auto;
 }
 .hero-art .craft-note > span {
   position: absolute;
-  top: -12px;
-  left: -35px;
+  top: 4px;
+  right: -40px;
   margin-left: 0;
   font-size: 30px;
-}
-@media (max-width: 1100px) {
-  .hero-art .craft-note { bottom: 4px; }
+  transform: rotate(180deg);
 }
 @media (max-width: 600px) {
-  .hero-art .craft-note { bottom: 0; right: 2%; }
-  .hero-art .craft-note > span { left: -27px; top: -8px; font-size: 24px; }
+  .hero-art .craft-note > span { right: -30px; top: 2px; font-size: 24px; }
 }
