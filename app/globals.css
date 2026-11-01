@@ -3655,17 +3655,22 @@ footer > .stripes {
   background: var(--teal);
   color: var(--cream);
 }
-.services .eyebrow { color: var(--gold); }
+.services .eyebrow { color: var(--cream); }
 .services .index { opacity: 1; }
 .services .service-list { border-color: #f7f2e866; scrollbar-color: var(--gold) var(--teal); }
 .services .service-list button { border-bottom-color: #f7f2e866; }
 .services .service-list button:hover,
 .services .service-list button[aria-selected="true"],
 .services .service-list button[aria-selected="true"] > span {
-  color: var(--gold);
+  color: var(--cream);
 }
-.services .service-list button[aria-selected="true"] { border-bottom-color: var(--gold); }
-.services .service-list button[aria-selected="true"] > i { color: var(--orange); }
+.services .service-list button[aria-selected="true"] {
+  border-bottom-color: var(--gold);
+  background: var(--gold);
+  color: var(--ink);
+}
+.services .service-list button[aria-selected="true"] > span,
+.services .service-list button[aria-selected="true"] > i { color: var(--ink); }
 .services .service-browser { border-color: var(--gold); }
 .services .service-browser > .browser-bar {
   background: var(--gold);
@@ -3734,5 +3739,5 @@ footer > .stripes {
 footer { background: var(--teal); color: var(--cream); }
 .footer-wordmark > span { color: var(--gold); }
 .footer-bottom { border-color: #f7f2e866; }
-footer a:hover { color: var(--gold); }
+footer a:hover { color: var(--cream); text-decoration-color: var(--gold); }
 footer a:focus-visible { outline-color: var(--gold); }
