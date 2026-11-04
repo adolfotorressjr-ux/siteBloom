@@ -1,30 +1,30 @@
 import type { Metadata } from "next";
-import Inquiry from "@/components/studio/inquiry";
-import { Eyebrow } from "@/components/studio/shared";
+import { TallyEmbed } from "@/components/start/tally-embed";
+
 export const metadata: Metadata = {
   title: "Start a Project",
+  description: "Tell siteBloom about your business and the website you need. We'll set up a quick call and send you a quote.",
   alternates: { canonical: "/start" },
 };
-export default function Start() {
+
+export default function StartPage() {
   return (
-    <main id="main" className="start-page section-pad">
-      <div className="start-heading">
-        <Eyebrow>YOUR NEXT CHAPTER STARTS HERE</Eyebrow>
-        <h1>
-          Let’s make your
-          <br />
-          website <em>bloom.</em>
+    <main id="main">
+      <section aria-labelledby="start-title" className="shell start-head">
+        <p className="eyebrow eyebrow-teal">Start a project</p>
+        <h1 id="start-title" className="h-xl">
+          Let&apos;s build your better website.
         </h1>
-        <div>
-          <p>
-            Tell us a little about your business.
-            <br />
-            We’ll take it from there.
-          </p>
-          <span>NO PERFECT BRIEF REQUIRED. ↙</span>
+        <p className="lead">
+          Tell us a little about your business. No perfect brief needed. We&apos;ll set up a quick call, then send you a
+          quote.
+        </p>
+      </section>
+      <section className="shell start-form">
+        <div className="card start-card">
+          <TallyEmbed />
         </div>
-      </div>
-      <Inquiry />
+      </section>
     </main>
   );
 }

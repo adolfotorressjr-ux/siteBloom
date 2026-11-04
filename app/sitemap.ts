@@ -1,12 +1,16 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/data/site";
-import { projects } from "@/data/projects";
+import { caseStudyProjects } from "@/data/work";
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  return ["", "/start", ...projects.map((p) => `/work/${p.slug}`)].map(
-    (path) => ({
-      url: site.url + path,
-      changeFrequency: "monthly",
-      priority: path ? 0.7 : 1,
-    }),
-  );
+  const pages = [
+    { path: "", priority: 1 },
+    { path: "/start", priority: 0.9 },
+    ...caseStudyProjects.map((p) => ({ path: `/work/${p.slug}`, priority: p.status === "live" ? 0.8 : 0.5 })),
+  ];
+  return pages.map(({ path, priority }) => ({
+    url: `${site.url}${path}`,
+    changeFrequency: "monthly",
+    priority,
+  }));
 }
