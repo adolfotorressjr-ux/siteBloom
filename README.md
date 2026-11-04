@@ -1,57 +1,61 @@
 # siteBloom
 
-Vercel-ready Next.js App Router project. The website design, visible content, images, fonts, and interactions are preserved from the completed siteBloom build.
-
-## Run locally
-
-Use Node.js 24.x and npm.
+The siteBloom studio website: [mysitebloom.com](https://mysitebloom.com). Next.js 16 (App Router), React 19, TypeScript, deployed on Vercel.
 
 ```sh
 npm ci
-npm run dev
-```
-
-Open http://localhost:3000. For a production build:
-
-```sh
-npm run build
+npm run dev       # http://localhost:3000
+npm run build     # production build
+npm run lint      # ESLint (next/core-web-vitals + TypeScript)
 npm run typecheck
-npm start
 ```
 
-## Deploy
+Node 24.x. `vercel.json` sets the install and build commands. No environment variables are required.
 
-Follow [DEPLOYMENT.md](./DEPLOYMENT.md). Import the repository into Vercel as **Next.js**, with the repository root as the Root Directory. No database, API key, or email service is required.
+## Where to edit things
 
-- Install: `npm ci`
-- Build: `npm run build`
-- Node.js: `24.x`
-- Output Directory: framework default (do not override)
-- Production Branch: `main`
+| What | File |
+| --- | --- |
+| Name, tagline, nav, **email** | `data/site.ts` |
+| Portfolio projects and case studies | `data/work.ts` |
+| Starting prices | `data/pricing.ts` |
+| Process steps, Why siteBloom, FAQ, proof strip | `data/content.ts` |
+| Colors, type, stripe, all styles | `app/globals.css` |
+| Tally form on /start | `components/start/tally-embed.tsx` |
 
-`vercel.json` provides the install/build settings. `package-lock.json` pins dependencies. `.nvmrc` and `package.json` specify Node 24.
+### Add a project (about a minute)
+
+1. Copy an entry in `data/work.ts` and change the fields.
+2. Set `status` to `"live"`, `"soon"` or `"concept"`. Concepts are always labeled as concepts.
+3. Optional: add screenshots to `public/work/<slug>/` and reference them as `cover`, `mobile`, or inside `caseStudy`.
+4. Add a `caseStudy` block to get a `/work/<slug>` page. Without it, the project shows as a card only.
+
+The homepage grid, case study pages and sitemap update automatically.
+
+### Add Monica's quote
+
+In `data/work.ts`, replace `quote: null` on Rodriguez Plastics with
+`quote: { text: "…", name: "Monica …", role: "Rodriguez Plastics Inc." }`. Until then a clearly marked placeholder shows.
 
 ## Routes
 
-- `/`
-- `/start`
-- `/work/ccptx`
-- `/work/accent-landscape`
-- `/sitemap.xml`
-- `/robots.txt`
+`/`, `/work/rodriguez-plastics`, `/work/ccptx`, `/work/accent-landscape`, `/start`, `/sitemap.xml`, `/robots.txt`, `/opengraph-image.png`. Unknown URLs get the branded 404.
 
-## Configuration
+## Brand rules (built into `globals.css`)
 
-No custom environment variables are required on Vercel. Canonical URLs use `NEXT_PUBLIC_SITE_URL` when provided; otherwise they use Vercel's `VERCEL_PROJECT_PRODUCTION_URL`, then `VERCEL_URL`, then `http://localhost:3000` for local work. Keep Vercel's automatic system environment variables enabled. For a custom domain, optionally set `NEXT_PUBLIC_SITE_URL` to its full HTTPS origin and redeploy.
+- Colors: Cream `#F7F2E8`, Ocean `#1499C6`, Teal `#075D73`, Ink `#15272B`, Red `#E74432`, Orange `#F47A24`, Gold `#F6B51B`, White.
+- Text is Ink on Cream, White, Ocean, Gold and Orange; Cream on Teal and Ink. Never Gold or Orange text on Cream.
+- The stripe is one `linear-gradient` with hard stops (`--stripe`), so it has no seams at any width.
+- Type: Fraunces (display, soft axis) and DM Sans (body), self-hosted with `next/font`.
 
-The inquiry form intentionally prepares a downloadable project brief locally. It does not send email or save submissions to a server. The integration boundary is `lib/inquiry.ts`. Budget and timeline options are in `data/site.ts`; the email remains unconfigured. Project examples remain labeled concepts.
+## Images
 
-## Source structure
+Rodriguez Plastics screenshots in `public/work/rodriguez-plastics/` were captured from the live site. The "before" image is the
+July 2025 Internet Archive snapshot of the old site. `next/image` serves them as AVIF/WebP at the right size.
 
-- `app/`: pages, metadata, global styles
-- `components/studio/`: reusable layout and interactive components
-- `data/`: projects, services, site configuration
-- `lib/inquiry.ts`: inquiry submission integration boundary
-- `public/`: optimized images, self-hosted fonts and font license, favicon, social image
+## Accessibility and motion
 
-The migration removes unused Sites/Cloudflare runtime files and dependencies. It does not require Wrangler, Vinext, or a Sites account. The original source remains separately available in the workspace.
+- Skip link, visible focus rings, ordered headings, alt text on content images.
+- The before/after slider is a native range input (mouse, touch, arrow keys, screen-reader value).
+- The mobile menu traps focus and closes on Escape.
+- Scroll reveals only hide content once JavaScript runs, and `prefers-reduced-motion` turns all motion off.

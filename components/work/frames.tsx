@@ -1,17 +1,12 @@
 import Image from "next/image";
 import type { Shot } from "@/data/work";
 
-export function BrowserFrame({
-  shot,
-  url,
-  priority = false,
-  sizes,
-}: {
-  shot: Shot;
-  url: string;
-  priority?: boolean;
-  sizes: string;
-}) {
+/**
+ * Browser-window mockup. `eager` loads the screenshot right away (above the
+ * fold) without preloading it, so the fonts behind the LCP headline win the
+ * bandwidth race on slow phones.
+ */
+export function BrowserFrame({ shot, url, eager = false, sizes }: { shot: Shot; url: string; eager?: boolean; sizes: string }) {
   return (
     <div className="browser">
       <div className="browser-bar" aria-hidden="true">
@@ -27,7 +22,7 @@ export function BrowserFrame({
           width={shot.width}
           height={shot.height}
           sizes={sizes}
-          priority={priority}
+          loading={eager ? "eager" : "lazy"}
           className="cover-img"
         />
       </div>
@@ -35,11 +30,11 @@ export function BrowserFrame({
   );
 }
 
-export function PhoneFrame({ shot, sizes, priority = false }: { shot: Shot; sizes: string; priority?: boolean }) {
+export function PhoneFrame({ shot, sizes }: { shot: Shot; sizes: string }) {
   return (
     <div className="phone">
       <div className="phone-screen">
-        <Image src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} sizes={sizes} priority={priority} className="cover-img top" />
+        <Image src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} sizes={sizes} className="cover-img top" />
       </div>
     </div>
   );

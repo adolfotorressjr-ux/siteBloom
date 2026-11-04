@@ -61,4 +61,4 @@ Official protection guide: https://vercel.com/docs/deployment-protection
 
 Add your domain in Vercel's project settings and follow its DNS instructions. Set `NEXT_PUBLIC_SITE_URL` to the full canonical HTTPS origin and redeploy. Do not enter an unowned placeholder domain.
 
-The project inquiry form still creates a downloadable brief locally. Publishing does not enable email delivery; a backend must be configured separately if desired.
+The /start page embeds the Tally questionnaire (tally.so/r/xVxolv). Submissions go to Tally.

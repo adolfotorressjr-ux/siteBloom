@@ -39,7 +39,7 @@ export function Hero() {
         <span aria-hidden="true" className="sun hero-sun" />
         {p.cover && (
           <div className="hero-laptop">
-            <BrowserFrame shot={p.cover} url="rodriguezplasticsinc.com" priority sizes="(min-width: 1240px) 560px, (min-width: 900px) 46vw, 86vw" />
+            <BrowserFrame shot={p.cover} url="rodriguezplasticsinc.com" eager sizes="(min-width: 1240px) 560px, (min-width: 900px) 46vw, 86vw" />
           </div>
         )}
         {p.mobile && (

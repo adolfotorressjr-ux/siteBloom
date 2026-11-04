@@ -8,14 +8,13 @@ import "./globals.css";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
-  axes: ["SOFT", "opsz"],
+  axes: ["SOFT"],
   variable: "--font-fraunces",
   display: "swap",
 });
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
-  axes: ["opsz"],
   variable: "--font-dm-sans",
   display: "swap",
 });
@@ -54,7 +53,7 @@ const businessJsonLd = {
   slogan: site.tagline,
   description: site.description,
   url: site.url,
-  image: `${site.url}/opengraph-image`,
+  image: `${site.url}/opengraph-image.png`,
   priceRange: "$$",
   knowsLanguage: ["en", "es"],
   address: {

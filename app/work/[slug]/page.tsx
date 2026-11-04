@@ -88,10 +88,10 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
           {p.cover && (
             <div className="case-hero-art">
               {host ? (
-                <BrowserFrame shot={p.cover} url={host} priority sizes="(min-width: 1240px) 600px, (min-width: 900px) 48vw, 92vw" />
+                <BrowserFrame shot={p.cover} url={host} eager sizes="(min-width: 1240px) 600px, (min-width: 900px) 48vw, 92vw" />
               ) : (
                 <div className="card case-cover">
-                  <Image src={p.cover.src} alt={p.cover.alt} width={p.cover.width} height={p.cover.height} priority sizes="(min-width: 1240px) 600px, 92vw" className="cover-img" />
+                  <Image src={p.cover.src} alt={p.cover.alt} width={p.cover.width} height={p.cover.height} loading="eager" sizes="(min-width: 1240px) 600px, 92vw" className="cover-img" />
                 </div>
               )}
             </div>
