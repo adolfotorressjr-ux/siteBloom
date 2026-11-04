@@ -18,5 +18,7 @@ Lighthouse 12 (local, simulated throttling):
 | `/work/ccptx` | 97 / 100 / 100 / 100 | 100 / 100 / 100 / 100 |
 | `/start` | 97 / 100 / 100 / 100 | 100 / 100 / 100 / 100 |
 
-Not verified locally: the Tally embed on `/start` (it did not render in the local preview browser, same as the live site in that
-browser), and scores on the deployed Vercel URL. Re-run Lighthouse on the preview deployment.
+Vercel preview (`redesign-2026` branch), checked November 4, 2026: the Tally form renders on `/start`; every route returns 200
+(unknown URLs 404); sitemap, robots and OG image are served; images load; no horizontal scroll.
+
+Not yet verified: Lighthouse on a deployed URL. The preview sits behind Vercel Authentication, so run it on production after merge.
