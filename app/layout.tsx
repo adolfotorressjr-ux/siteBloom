@@ -1,8 +1,23 @@
 import type { Metadata } from "next";
+import { DM_Sans, Fraunces } from "next/font/google";
 import Navigation from "@/components/studio/navigation";
 import { Footer } from "@/components/studio/shared";
 import { site } from "@/data/site";
 import "./globals.css";
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  axes: ["SOFT", "opsz"],
+  variable: "--font-fraunces",
+  display: "swap",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  axes: ["opsz"],
+  variable: "--font-dm-sans",
+  display: "swap",
+});
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
@@ -39,23 +54,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <head>
-        <link
-          rel="preload"
-          href="/fonts/manrope-regular.ttf"
-          as="font"
-          type="font/ttf"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/manrope-bold.ttf"
-          as="font"
-          type="font/ttf"
-          crossOrigin="anonymous"
-        />
-      </head>
+    <html lang="en" className={`${fraunces.variable} ${dmSans.variable}`}>
       <body id="top">
         <a className="skip-link" href="#main">
           Skip to content
