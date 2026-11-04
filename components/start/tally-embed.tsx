@@ -13,7 +13,7 @@ function loadQuestionnaire() {
   tallyWindow.Tally?.loadEmbeds();
 }
 
-export default function Inquiry() {
+export function TallyEmbed() {
   return (
     <section className="inquiry-form" aria-label="Project questionnaire">
       <iframe
@@ -32,7 +32,7 @@ export default function Inquiry() {
         strategy="afterInteractive"
         onReady={loadQuestionnaire}
       />
-      <p style={{ marginTop: 24, fontSize: 14 }}>
+      <p className="tally-fallback">
         Having trouble with the form?{" "}
         <a
           className="text-link"

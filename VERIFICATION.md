@@ -1,19 +1,24 @@
-# Vercel migration verification
+# Verification: 2026 redesign
 
-Verified locally on October 16, 2026, using Node.js 24.15.0.
+Checked locally on November 3, 2026 against the production build (`npm run build && npm start`), Node 24.15.0.
 
-- Clean `npm ci --offline --no-audit --no-fund` from the pinned lockfile: passed (46 installed packages).
-- Standard `npm run build` (`next build`, Next.js 16.3.4 / Turbopack): passed.
-- Build-time TypeScript checks and separate `npm run typecheck`: passed.
-- All eight generated static pages completed successfully.
-- Production `npm start`: started successfully.
-- HTTP 200: `/`, `/start`, `/work/ccptx`, `/work/accent-landscape`, `/sitemap.xml`, `/robots.txt`, favicon, social image, and self-hosted font.
-- HTTP 404: `/work/does-not-exist`.
-- All eight CSS/JavaScript assets referenced by the production homepage returned nonempty HTTP 200 responses.
-- Browser confirmed homepage rendering and hydrated service switching to the e-commerce preview.
-- Browser console: no warnings/errors during that production interaction check.
-- Byte comparison: all 30 website UI/content/asset files checked, including the inquiry logic, are identical to the original completed site. `data/site.ts` differs only in its metadata URL configuration.
+- `npm run build`: passes (TypeScript included). `npm run lint`: no errors or warnings.
+- No horizontal scrolling at 375, 768, 1280 and 1920px on `/`, all three case studies, `/start` and the 404.
+- One `h1` per page, no skipped heading levels, every `<img>` has an `alt` attribute.
+- Before/after slider responds to arrow keys and announces its position. Mobile menu opens, moves focus in, closes on Escape.
+- Unknown URLs return HTTP 404 with the branded page.
+- No console errors.
 
-Only deployment configuration, dependencies, documentation, and canonical URL selection were changed. The original design/content and local-only inquiry behavior are preserved.
+Lighthouse 12 (local, simulated throttling):
 
-A hosted Vercel build and public URL cannot be verified until the repository is created/uploaded and imported. No Lighthouse score is claimed. The prior site's responsive polish passes are not presented as a new full breakpoint audit of this deployment migration.
+| Page | Mobile Perf / A11y / BP / SEO | Desktop |
+| --- | --- | --- |
+| `/` | 95 / 100 / 100 / 100 | 100 / 100 / 100 / 100 |
+| `/work/rodriguez-plastics` | 95 / 100 / 100 / 100 | 100 / 100 / 100 / 100 |
+| `/work/ccptx` | 97 / 100 / 100 / 100 | 100 / 100 / 100 / 100 |
+| `/start` | 97 / 100 / 100 / 100 | 100 / 100 / 100 / 100 |
+
+Vercel preview (`redesign-2026` branch), checked November 4, 2026: the Tally form renders on `/start`; every route returns 200
+(unknown URLs 404); sitemap, robots and OG image are served; images load; no horizontal scroll.
+
+Not yet verified: Lighthouse on a deployed URL. The preview sits behind Vercel Authentication, so run it on production after merge.

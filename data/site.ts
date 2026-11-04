@@ -1,25 +1,26 @@
+/**
+ * Site-wide settings. Edit here, everything else reads from this file.
+ */
 export const site = {
   name: "siteBloom",
-  url: process.env.NEXT_PUBLIC_SITE_URL ||
+  tagline: "Good businesses deserve better websites.",
+  description:
+    "siteBloom is an El Paso web design studio. We build fast, modern websites for small and established businesses that have outgrown their old one.",
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ||
     (process.env.VERCEL_PROJECT_PRODUCTION_URL
       ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-      : process.env.VERCEL_URL
-        ? `https://${process.env.VERCEL_URL}`
-        : "http://localhost:3000"),
+      : "https://mysitebloom.com"),
+  /** TODO: add the studio email. While null, the footer shows a "Start a Project" link instead. */
   email: null as string | null,
-  description:
-    "siteBloom designs and builds modern websites for businesses ready to outgrow their old one.",
-};
-export const budgetOptions = [
-  "Under $500",
-  "$500–$1,000",
-  "$1,000–$2,500",
-  "$2,500+",
-  "Not sure yet",
-];
-export const timelineOptions = [
-  "ASAP",
-  "Within 1 month",
-  "1–3 months",
-  "Just exploring",
-];
+  city: "El Paso",
+  region: "TX",
+  country: "US",
+  startHref: "/start",
+  nav: [
+    { label: "Work", href: "/#work" },
+    { label: "Services", href: "/#services" },
+    { label: "Process", href: "/#process" },
+    { label: "FAQ", href: "/#faq" },
+  ],
+} as const;

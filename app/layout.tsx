@@ -1,86 +1,92 @@
-import type { Metadata } from "next";
-import Navigation from "@/components/studio/navigation";
-import { Footer } from "@/components/studio/shared";
+import type { Metadata, Viewport } from "next";
+import { DM_Sans, Fraunces } from "next/font/google";
+import { RevealObserver } from "@/components/layout/reveal-observer";
+import { SiteFooter } from "@/components/layout/site-footer";
+import { SiteHeader } from "@/components/layout/site-header";
 import { site } from "@/data/site";
 import "./globals.css";
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  axes: ["SOFT"],
+  variable: "--font-fraunces",
+  display: "swap",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dm-sans",
+  display: "swap",
+});
+
+const title = "siteBloom | Web design in El Paso, TX";
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: {
-    default: "siteBloom — Web Design & Development",
-    template: "%s | siteBloom",
-  },
+  title: { default: title, template: "%s | siteBloom" },
   description: site.description,
+  applicationName: site.name,
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Good businesses deserve better websites. — siteBloom",
-    description: site.description,
-    url: site.url,
-    siteName: "siteBloom",
     type: "website",
-    images: [
-      {
-        url: "/og.png",
-        width: 1200,
-        height: 630,
-        alt: "siteBloom — Good businesses deserve better websites.",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "siteBloom — Web Design & Development",
+    siteName: site.name,
+    title,
     description: site.description,
+    url: "/",
+    locale: "en_US",
   },
+  twitter: { card: "summary_large_image", title, description: site.description },
   icons: { icon: "/favicon.svg" },
+  formatDetection: { telephone: false },
 };
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+
+export const viewport: Viewport = {
+  themeColor: "#f7f2e8",
+  colorScheme: "light",
+};
+
+const businessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": `${site.url}/#business`,
+  name: site.name,
+  slogan: site.tagline,
+  description: site.description,
+  url: site.url,
+  image: `${site.url}/opengraph-image.png`,
+  priceRange: "$$",
+  knowsLanguage: ["en", "es"],
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: site.city,
+    addressRegion: site.region,
+    addressCountry: site.country,
+  },
+  areaServed: [
+    { "@type": "City", name: "El Paso, TX" },
+    { "@type": "Country", name: "United States" },
+  ],
+  ...(site.email ? { email: site.email } : {}),
+};
+
+export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${fraunces.variable} ${dmSans.variable}`} suppressHydrationWarning>
       <head>
-        <link
-          rel="preload"
-          href="/fonts/manrope-regular.ttf"
-          as="font"
-          type="font/ttf"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/manrope-bold.ttf"
-          as="font"
-          type="font/ttf"
-          crossOrigin="anonymous"
-        />
+        {/* Lets scroll reveals hide content only when JS is running. */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
       </head>
-      <body id="top">
+      <body>
         <a className="skip-link" href="#main">
           Skip to content
         </a>
-        <Navigation />
+        <SiteHeader />
         {children}
-        <Footer />
+        <SiteFooter />
+        <RevealObserver />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "ProfessionalService",
-              name: "siteBloom",
-              url: site.url,
-              description: site.description,
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "El Paso",
-                addressRegion: "TX",
-                addressCountry: "US",
-              },
-              areaServed: "United States",
-            }),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(businessJsonLd).replace(/</g, "\\u003c") }}
         />
       </body>
     </html>
