@@ -116,6 +116,7 @@ export const projects: Project[] = [
     industry: "Staffing",
     summary: "A new website for a staffing company. Launching soon.",
     color: "ocean",
+    cover: { src: "/work/hermes-staffing/home-desktop.jpg", alt: "The new Hermes Staffing homepage", width: 1440, height: 900 },
   },
   {
     slug: "ccptx",
